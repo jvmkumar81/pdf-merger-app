@@ -27,7 +27,7 @@ async def merge(files: List[UploadFile] = File(...)):
 
         output_path = os.path.join(tmpdir, "merged_output.pdf")
 
-        # Attempt to import combinePdfs from the absolute path provided by the user.
+        # Attempt to import combinePdfs from the absolute path provided by the user .
         try:
             user_module_dir = r"C:\\MyStuff\\pythonSpace"
             if user_module_dir not in sys.path:

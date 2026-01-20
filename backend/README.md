@@ -10,7 +10,7 @@ Prerequisites
 Local build & run
 
 ```bash
-# from the `backend/` directory
+#  from the `backend/` directory
 docker build -t pdf-merger-backend:latest .
 
 # run locally, map container port 8080 -> host 8080

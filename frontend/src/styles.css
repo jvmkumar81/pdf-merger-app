@@ -131,7 +131,7 @@ body{
 
 .empty-state{padding:20px; text-align:center; border-radius:8px; background:var(--gray-0); border:1px dashed var(--gray-20)}
 
-/* muted, utility */
+/* muted, utility  */
 .muted{color:var(--gray-70)}
 
 /* color variants for pdf icon (muted saturation) */

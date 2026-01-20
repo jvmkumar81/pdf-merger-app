@@ -26,6 +26,7 @@ export default function PDFMerger() {
     setPdfFiles(prev => [...prev, ...newFiles]);
   };
 
+  
   const handleDragOver = (e) => {
     e.preventDefault();
     setIsDragging(true);

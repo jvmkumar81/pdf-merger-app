@@ -5,7 +5,7 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-# Install minimal OS packages (adjust if you need DB clients or system libs)
+#  Install minimal OS packages (adjust if you need DB clients or system libs)
 RUN apt-get update \
     && apt-get install -y --no-install-recommends build-essential \
     && rm -rf /var/lib/apt/lists/*

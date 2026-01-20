@@ -1,5 +1,6 @@
 # PDF Merger App
 
+
 This repository contains a minimal React frontend (Vite) with the `PDFMerger` UI component you provided and a small FastAPI backend which attempts to integrate the existing Python script at `C:\\MyStuff\\pythonSpace\\combinePdfs.py`.
 
 Quick start (Windows):
@@ -38,7 +39,3 @@ Integration notes
 
 - The backend tries to import `combinePdfs` from `C:\\MyStuff\\pythonSpace`. If your script exposes a `merge_pdfs(input_paths, output_path)` function, it will be called. If not, the backend attempts to call `combinePdfs.py` via subprocess with input paths and `-o`/`--output` fallback.
 - If `combinePdfs.py` expects a different interface, let me know and I will adapt the backend accordingly.
-
-Next steps
-
-- Would you like me to run or test the backend locally here? If so, I can try running the servers (I will need permission to run commands). Alternatively, provide `combinePdfs.py` contents if you'd like a tighter integration.
