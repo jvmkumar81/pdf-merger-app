@@ -1,0 +1,152 @@
+/* Carbon-inspired design tokens and base styles */
+:root{
+   /* Primary */
+   --color-primary: #0f62fe; /* IBM Blue 60 */
+   --color-primary-600: #0846c9;
+
+   /* Neutrals (cool grayscale) */
+   --gray-0: #ffffff;
+   --gray-10: #f4f4f4;
+   --gray-20: #e6e6e6;
+   --gray-30: #d9d9d9;
+   --gray-40: #c6c6c6;
+   --gray-50: #9da3a8;
+   --gray-60: #7a7f85;
+   --gray-70: #5b6166;
+   --gray-90: #161616;
+
+   /* Semantic */
+   --color-success: #198a4b; /* muted green */
+   --color-warning: #b58900; /* muted gold */
+   --color-danger: #c1302b; /* muted red */
+   --color-info: #0f62fe; /* information uses primary */
+
+   /* Spacing scale (8px grid) */
+   --space-1: 4px;
+   --space-2: 8px;
+   --space-3: 12px;
+   --space-4: 16px;
+   --space-5: 24px;
+   --space-6: 32px;
+
+   --radius-small: 2px;
+   --radius-medium: 8px;
+
+   --elevation-1: 0 1px 2px rgba(22,22,22,0.04);
+   --elevation-2: 0 6px 18px rgba(16,22,26,0.06);
+
+   --font-sans: 'IBM Plex Sans', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+   margin:0;
+   font-family:var(--font-sans);
+   font-size:16px;
+   line-height:1.45;
+   color:var(--gray-90);
+   background:var(--gray-10);
+   -webkit-font-smoothing:antialiased;
+   -moz-osx-font-smoothing:grayscale;
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce){
+   *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important}
+}
+
+.app-container{
+   min-height:100vh;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   padding:var(--space-6) var(--space-4);
+}
+
+.card{
+   width:100%;
+   max-width:1100px;
+   background:var(--gray-0);
+   border-radius:12px;
+   padding:var(--space-5);
+   box-shadow:var(--elevation-2);
+   border:1px solid var(--gray-20);
+}
+
+.header{display:flex; flex-direction:column; gap:8px; margin-bottom:12px}
+.brand-mark{width:64px; height:64px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:var(--color-primary); color:var(--gray-0)}
+.title{font-size:22px; font-weight:700; color:var(--gray-90)}
+.subtitle{color:var(--gray-70); font-size:14px}
+
+/* Upload / region */
+.upload-zone{
+   margin-top:8px;
+   border-radius:8px;
+   padding:20px;
+   display:flex;
+   gap:12px;
+   align-items:center;
+   justify-content:center;
+   flex-direction:column;
+   transition:box-shadow .18s ease, border-color .12s ease, transform .12s ease;
+   border:2px dashed var(--gray-20);
+   background:linear-gradient(180deg,var(--gray-0),var(--gray-10));
+}
+.upload-zone.dragging{border-color:rgba(15,98,254,0.32); box-shadow:0 8px 28px rgba(15,98,254,0.06); transform:translateY(-2px)}
+.upload-illustration{width:84px; height:84px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:var(--color-primary); color:var(--gray-0)}
+.upload-title{font-size:18px; font-weight:600}
+.upload-desc{color:var(--gray-70); margin-bottom:8px}
+
+/* Buttons */
+.btn{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:var(--radius-small); font-weight:600; font-size:14px; cursor:pointer; border:1px solid var(--gray-30); background:transparent; color:var(--gray-90)}
+.btn:focus-visible{outline:3px solid var(--color-primary); outline-offset:2px}
+.btn--primary{background:var(--color-primary); color:var(--gray-0); border-color:var(--color-primary)}
+.btn--secondary{background:transparent; color:var(--color-primary); border-color:var(--color-primary)}
+.btn[disabled]{opacity:0.5; cursor:not-allowed}
+
+.files-card{margin-top:12px; border-radius:8px; padding:14px; background:var(--gray-0); border:1px solid var(--gray-20)}
+.files-header{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px}
+.files-title{display:flex; align-items:center; gap:12px; font-weight:600; color:var(--gray-90)}
+.counter-badge{min-width:32px; height:32px; background:var(--gray-10); color:var(--color-primary); display:flex; align-items:center; justify-content:center; border-radius:6px; font-weight:700}
+.clear-btn{background:transparent; color:var(--color-danger); border:none; cursor:pointer; padding:8px 10px; border-radius:6px}
+
+.file-list{display:flex; flex-direction:column; gap:10px}
+.file-item{display:flex; align-items:center; gap:12px; padding:12px; border-radius:6px; transition:background .12s ease, transform .12s ease; border:1px solid var(--gray-20); background:var(--gray-0)}
+.file-item.dragging{opacity:0.8}
+.file-handle{cursor:grab; color:var(--gray-50)}
+.pdf-icon{width:52px; height:52px; border-radius:6px; display:flex; align-items:center; justify-content:center; color:var(--gray-0)}
+.meta{flex:1; min-width:0}
+.filename{font-weight:600; font-size:14px; color:var(--gray-90); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.filesub{display:flex; gap:10px; align-items:center; margin-top:6px; color:var(--gray-70); font-size:13px}
+.position-badge{background:var(--gray-10); color:var(--color-primary); padding:6px 10px; border-radius:999px; font-weight:700; font-size:12px}
+.remove-btn{background:transparent; border:none; cursor:pointer; padding:8px; color:var(--color-danger)}
+
+.tip{margin-top:12px; padding:10px; border-radius:6px; background:var(--gray-10); border:1px solid var(--gray-20); color:var(--gray-70); display:flex; gap:8px; align-items:center}
+
+.merge-card{margin-top:12px; display:flex; gap:12px; align-items:center}
+.merge-btn{flex:1; padding:12px; border-radius:6px; background:var(--color-primary); color:var(--gray-0); font-weight:700; border:none; cursor:pointer}
+.merge-btn:disabled{background:var(--gray-20); color:var(--gray-50); cursor:not-allowed}
+.info-text{color:var(--gray-70); font-size:13px}
+
+.empty-state{padding:20px; text-align:center; border-radius:8px; background:var(--gray-0); border:1px dashed var(--gray-20)}
+
+/* muted, utility */
+.muted{color:var(--gray-70)}
+
+/* color variants for pdf icon (muted saturation) */
+.pdf-red{background:linear-gradient(135deg,#b64b4b,#9b2f2f)}
+.pdf-blue{background:linear-gradient(135deg,#1457e6,#0f62fe)}
+.pdf-green{background:linear-gradient(135deg,#198a4b,#156c3b)}
+.pdf-yellow{background:linear-gradient(135deg,#b58900,#9a6f00)}
+
+/* simple spinner for merge */
+.spinner{width:16px;height:16px;border-radius:50%;border:3px solid rgba(255,255,255,0.18);border-top-color:rgba(255,255,255,0.95);animation:spin .85s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media (max-width:720px){
+   .card{padding:16px}
+   .brand-mark{width:48px;height:48px}
+   .upload-illustration{width:64px;height:64px}
+}
+
